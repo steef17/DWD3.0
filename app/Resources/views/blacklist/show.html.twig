@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Blacklist</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blacklist.id }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ blacklist.customerID }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('blacklist_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('blacklist_edit', { 'id': blacklist.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

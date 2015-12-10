@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ customer.id }}</td>
+            </tr>
+            <tr>
+                <th>Customerid</th>
+                <td>{{ customer.customerID }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ customer.name }}</td>
+            </tr>
+            <tr>
+                <th>Postcode</th>
+                <td>{{ customer.postcode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ customer.city }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('customer_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

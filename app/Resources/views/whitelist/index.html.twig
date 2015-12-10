@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Whitelist list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customerid</th>
+                <th>Filter</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for whitelist in whitelists %}
+            <tr>
+                <td><a href="{{ path('whitelist_show', { 'id': whitelist.id }) }}">{{ whitelist.id }}</a></td>
+                <td>{{ whitelist.customerID }}</td>
+                <td>{{ whitelist.filter }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('whitelist_show', { 'id': whitelist.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('whitelist_edit', { 'id': whitelist.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('whitelist_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

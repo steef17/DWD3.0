@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Blacklist list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customerid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for blacklist in blacklists %}
+            <tr>
+                <td><a href="{{ path('blacklist_show', { 'id': blacklist.id }) }}">{{ blacklist.id }}</a></td>
+                <td>{{ blacklist.customerID }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('blacklist_show', { 'id': blacklist.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('blacklist_edit', { 'id': blacklist.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('blacklist_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

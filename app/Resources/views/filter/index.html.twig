@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Filter list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Isdeleted</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for filter in filters %}
+            <tr>
+                <td><a href="{{ path('filter_show', { 'id': filter.id }) }}">{{ filter.id }}</a></td>
+                <td>{{ filter.name }}</td>
+                <td>{% if entity.isDeleted %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('filter_show', { 'id': filter.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('filter_edit', { 'id': filter.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('filter_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
